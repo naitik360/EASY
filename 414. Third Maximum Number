@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& v){
+        unordered_set<int> s(v.begin(),v.end());
+        if(s.size()>2){
+            for(int i=0;i<=1;i++)
+                s.erase(max_element(s.begin(),s.end()));
+        }
+        return *max_element(s.begin(),s.end());
+   }
+};
