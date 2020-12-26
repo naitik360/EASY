@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int arrayPairSum(vector<int>& v) {
+        sort(v.begin(),v.end());
+        bool ok=1;
+        int s=0;
+        for(int i=0;i<v.size();i++)
+        {
+            if((i+1)%2!=0)
+                s=s+v[i];
+        }
+        return s;
+    }
+};
