@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int fib(int n) {
+        float a=sqrt(5);
+        long long int b=pow(2,n)*a;
+        long long int c=pow(1+a,n);
+        long long int d=pow(1-a,n);
+        return (c-d)/b;
+    }
+};
