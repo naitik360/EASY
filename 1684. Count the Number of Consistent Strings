@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int countConsistentStrings(string a, vector<string>& w) {
+        map<char,int> m;
+        
+        for(auto i : a)
+            m[i]++;
+        
+        int t=0;
+        
+        for(int j=0;j<w.size();j++){
+            bool ok=1;
+            for(int k=0;k<w[j].size();k++){
+                if(m[w[j][k]]==0)
+                {
+                    ok=0;
+                    break;
+                }
+            }
+            if(ok)
+                 t++;
+        }
+        
+        return t;
+    }
+};
