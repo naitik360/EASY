@@ -1,0 +1,11 @@
+class Solution {
+public:
+    string defangIPaddr(string s) {
+        string d="";
+        
+        for(int i=0;i<s.size();i++)
+           (s[i]==46) ? d+="[.]"  :  d+=s[i];
+        
+        return d;
+    }
+};
