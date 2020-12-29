@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int removeElement(vector<int>& v, int k) {
+        int i=0,n=v.size();
+        while(i<n){
+            if(v[i]==k){
+                v[i]=v[n-1]; // if the element value equals to the element to be removed then copy the last element value to the current position .
+                n--;    
+            }
+            else
+                i++;
+        }
+        return i;
+    }
+};
