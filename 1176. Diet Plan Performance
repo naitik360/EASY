@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int dietPlanPerformance(vector<int>& v , int k , int l , int u){
+        int sum=0,t=0;
+        for(int i=0;i<k;i++)
+            sum=sum+v[i];
+        
+        if(sum<l)
+            t--;
+        else if(sum>u)
+            t++;
+        for(int j=k;j<v.size();j++)
+        {
+            sum=sum+v[j]-v[j-k];
+            if(sum<l)
+                t--;
+            if(sum>u)
+                t++;
+        }
+      return t;
+    }
+};
