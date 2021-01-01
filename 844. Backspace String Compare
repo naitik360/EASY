@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool backspaceCompare(string S, string T) {
+      stack<char> h,y;
+      for(char i : S)
+        {
+            
+            if(i!=35)
+                h.push(i);
+             else 
+             {
+                 if(!h.empty())
+                     h.pop();
+             }
+          
+        }
+        for(char j : T)
+        {
+            if(j!=35)
+                y.push(j);
+             else 
+             {
+                 if(!y.empty())
+                     y.pop();
+             } 
+        }
+        
+        return y==h;
+    }
+};
