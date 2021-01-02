@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isLongPressedName(string n, string t) {
+        int i=0,j=0;
+        char s;
+        
+        while(i<=n.size() || j<=t.size())
+        { 
+            if(n[i]==t[j])
+            {   
+                s=n[i];
+                i++;
+                j++;
+            }
+            else
+            {
+               if(s==t[j])
+                   j++;
+                else
+                    return 0;
+            }
+        }
+        return 1;
+    }
+};
