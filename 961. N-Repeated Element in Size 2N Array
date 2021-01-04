@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& A) {
+        int h;
+          map<int,int> m;
+        for(auto i : A)
+             m[i]++; 
+          
+        for(auto j : m)
+        { if(j.second==A.size()/2)
+          {h=j.first;break;}}
+        
+        
+        return h;
+    }
+};
