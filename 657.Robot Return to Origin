@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool judgeCircle(string m) {
+        int i=0,j=0;
+        
+        for(char c : m)
+        {
+            if(c=='U')
+                j++;
+            else if(c=='D')
+                j--;
+            
+            if(c=='R')
+                i++;
+            else if(c=='L')
+                i--;
+        }
+        
+        if(i==0 && j==0)
+            return 1;
+        else
+            return 0;
+    }
+};
