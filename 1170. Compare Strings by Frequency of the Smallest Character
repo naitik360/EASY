@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> numSmallerByFrequency(vector<string>& queries, vector<string>& words) {
+        map<int, int> counts;
+        for (string& s : words) {
+            ++counts[f(s)];
+        }
+        
+        vector<int> res;
+        for (string& s : queries) {
+            int currCount = 0;
+            for (auto iter = counts.upper_bound(f(s)); iter != counts.end(); ++iter) {
+                currCount += iter->second;
+            }
+            res.push_back(currCount);
+        }
+        return res;
+    }
+    
+    int f(string& s) {
+        if (s.empty()) return 0;
+        
+        sort(s.begin(), s.end());
+        int i = 1;
+        for (; i < s.size(); ++i) {
+            if (s[i] != s[i-1]) {
+                return i;
+            }
+        }
+        return i;
+    }
+};
