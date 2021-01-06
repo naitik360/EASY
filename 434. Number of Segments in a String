@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int countSegments(string s) {
+        
+        int t=0;
+        stringstream ss(s);
+        string w="";
+        while(ss>>w)
+        {
+            t++;
+        }
+        
+        return t;
+    }
+};
