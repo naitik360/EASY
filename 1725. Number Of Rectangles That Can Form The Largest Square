@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& v){
+        
+        vector<int> c;
+        int s=-1,t=0;
+        for(int i=0;i<v.size();i++)
+        {   
+            int h=min(v[i][0],v[i][1]);
+            c.push_back(h); 
+            if(s<h)
+              s=h;
+        } 
+        for(int r=0;r<c.size();r++)
+        {
+            if(c[r]>=s)
+                 t++;
+        }
+     return t;
+   }
+};
