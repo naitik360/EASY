@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int largestAltitude(vector<int>& v) {
+        
+        int ans=INT_MIN;
+        ans=v[0]+0;
+        for(int i=1;i<v.size();i++)
+        {   
+            int h=(v[i]+v[i-1]);
+            v[i]=v[i]+v[i-1];
+            ans=max(h,ans);
+        }
+        ans=max(0,ans);
+      return ans;
+    }
+};
