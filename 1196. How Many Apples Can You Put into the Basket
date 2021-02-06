@@ -8,6 +8,7 @@ public:
             s=s+v[i];
             if(s>5000)
                 break;
+                
         }
       return i;
     }
