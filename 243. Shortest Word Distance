@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int shortestDistance(vector<string>& w, string w1, string w2) {
+        int t1=-1,t2=-1,ans=INT_MAX;
+        for(int i=0;i<w.size();i++)
+        {
+            if(w[i]==w1)
+                t1=i;
+            if(w[i]==w2)
+                t2=i;
+            if(t1!=-1 && t2!=-1)
+            {
+                ans=min(ans,abs(t2-t1));
+            }
+        }
+      return ans;
+    }
+};
