@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& v) {
+        
+        int t=v.size()/2;
+        map<int,int> m;
+        for(auto i : v)
+            m[i]++;
+        
+        
+        return (m.size()>=t) ? t : m.size() ;
+        
+        
+    }
+};
