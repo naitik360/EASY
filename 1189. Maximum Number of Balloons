@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int maxNumberOfBalloons(string s) {
+        int b=0,a=0,l=0,n=0,o=0;
+        
+        for(auto i : s)
+        {
+            if(i=='b')
+                b++;
+            else if(i=='a')
+                a++;
+            else if(i=='l')
+                 l++;
+            else if(i=='o')
+                 o++;
+            else if(i=='n')
+                n++;
+        }
+        
+        l=l/2;
+        o=o/2;
+        
+       int x[]={b,a,l,o,n};
+        return *min_element(x,x+5);
+        
+    }
+};
