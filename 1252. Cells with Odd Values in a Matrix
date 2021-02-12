@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int oddCells(int n, int m, vector<vector<int>>& v) {
+        vector<vector<int>> a(n,vector<int>(m,0));
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                a[i][j]=0;
+                    
+            }
+        }
+        for(int i=0;i<v.size();i++)
+        {
+            int r=v[i][0];
+            int c=v[i][1];
+            for(int j=0;j<m;j++)
+               a[r][j]++;
+             
+            for(int j=0;j<n;j++)
+               a[j][c]++;
+        }
+        
+        int h=0;
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(a[i][j]&1)
+                     h++;
+            }
+        }
+      return h;
+    }
+};
