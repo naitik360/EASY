@@ -1,0 +1,29 @@
+class Solution {
+public:
+    char slowestKey(vector<int>& v, string s) {
+        multimap<char,int> m;
+        m.insert(pair<char,int>(s[0],v[0]));
+        for(int i=1;i<v.size();i++)
+        {  
+          m.insert(pair<char,int>(s[i],v[i]-v[i-1]));
+        }
+        
+        int mn=INT_MIN;
+        vector<char> k;
+        for(auto i : m)
+        {
+            if(i.second>=mn)
+            {
+                mn=i.second;
+                k.push_back(i.first);
+            }
+        }
+        
+        
+        sort(k.begin(),k.end());
+        
+        return k[k.size()-1];
+            
+    }
+};
+
