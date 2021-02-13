@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool canBeEqual(vector<int>& t, vector<int>& a) {
+        map<int,int> m1,m2;
+        
+        for(auto i : t)
+             m1[i]++;
+        
+        for(auto i : a)
+             m2[i]++;
+        
+        for(auto i : m1)
+        {
+            if(m2.find(i.first)==m2.end())
+                 return 0;
+            
+            else if(i.second!=m2[i.first])
+                 return 0;
+        }
+        
+      return 1;
+        
+    }
+};
