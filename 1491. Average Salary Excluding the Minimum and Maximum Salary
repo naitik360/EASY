@@ -1,0 +1,19 @@
+class Solution {
+public:
+    double average(vector<int>& v) {
+        
+        double s=0,mn=DBL_MAX,mx=DBL_MIN;
+        for(auto i : v)
+        {  
+            s+=i;
+            if(i<mn)
+                mn=i;
+            if(i>mx)
+                mx=i;
+        }
+        
+        return (s-mn-mx)/(double(v.size()-2));
+        
+        
+    }
+};
