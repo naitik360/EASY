@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int countStudents(vector<int>& c, vector<int>& s) {
+        
+        queue<int> q;
+        for(int i=0;i<c.size();i++)
+             q.push(c[i]);
+        
+        while(1){
+              int t=q.size();
+              for(int i=0;i<t;i++)
+              {
+                  if(q.front()==s[0])
+                  {
+                      q.pop();
+                      s.erase(s.begin());
+                  }
+                  else
+                  {
+                      q.push(q.front());
+                      q.pop();
+                  }
+              }
+            if(t==q.size())
+            {
+                return q.size();
+            }
+        }
+    }
+};
