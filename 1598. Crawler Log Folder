@@ -1,0 +1,10 @@
+stack<string> path;
+        for(auto log:logs){
+            if(log == "../" && !path.empty()){
+                path.pop();
+            }
+            if(log != "../" && log != "./"){
+                path.push(log);
+            }
+        }
+        return path.size();
