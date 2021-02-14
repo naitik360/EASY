@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int findSpecialInteger(vector<int>& v) {
+        map<int,int> m;
+        for(auto i : v)
+             m[i]++;
+        
+        
+        int r;
+        int mn=INT_MIN;
+        
+        for(auto i : m)
+        {
+            if(i.second>mn)
+            {
+                mn=i.second;
+                r=i.first;
+            }
+        }
+        
+        return r;
+        
+    }
+};
