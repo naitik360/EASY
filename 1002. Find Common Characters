@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& v) {
+        map<char,int> m;
+        for(auto i : v[0])
+            m[i]++;
+        vector<string> ans;
+        for(int i=1;i<v.size();i++)
+        {
+            map<char,int> mp;
+            for(auto g : v[i])
+                 mp[g]++;
+            if (m.size() == 0)
+                return ans;
+            for(auto it =m.begin();it!=m.end();it++)
+            {   
+                if(mp.count(it->first))
+                   m[it->first]=min(m[it->first],mp[it->first]);
+                else
+                    m[it->first]=0;
+            }
+        }
+        
+       for (auto iter = m.begin(); iter != m.end(); iter++) {
+            for (auto i = 0; i < m[iter->first]; ++i) {
+                ans.push_back(string(1, iter->first));
+            }
+        }
+        return ans;
+    }
+};
