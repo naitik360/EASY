@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& t, int n) {
+         vector<string> k;
+         vector<int> a;
+         for(int i=1;i<=n;i++)
+              a.push_back(i);
+         
+        int j=0,i=0;
+         while(i<t.size())
+         {
+             if(a[j]==t[i])
+             {
+                 k.push_back("Push");
+                 j++;
+                 i++;
+             }
+             else if(a[j]<t[i])
+             {
+                 while(a[j]!=t[i])
+                 {   
+                      k.push_back("Push");
+                     k.push_back("Pop");
+                     j++;
+                 }
+             }
+         }
+      return k;
+    }
+};
