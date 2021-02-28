@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void check(TreeNode* p,TreeNode *q, bool &ok)
+    {
+        if(q==NULL && p==NULL)
+            return;
+        
+        if((q==NULL && p!=NULL) || (q!=NULL && p==NULL))
+        {ok=0;return;}
+        
+        if(ok){
+        if(p->val!=q->val)
+             ok=0;
+        }
+        //if(q->left!=NULL && p->left!=NULL)
+           check(p->left,q->left,ok);
+       
+        
+       // if(q->right!=NULL && p->right!=NULL)
+           check(p->right,q->right,ok);
+       // else
+         //   ok=0;
+    }
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        bool ok=1;
+        check(p,q,ok);
+        return ok;
+    }
+};
