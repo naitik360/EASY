@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int nearestValidPoint(int x, int y, vector<vector<int>>& v) {
+        int ans=INT_MAX,t=-1;;
+        for(int i=0;i<v.size();i++)
+        {   
+            int dist=((x-v[i][0])*(x-v[i][0])+(y-v[i][1])*(y-v[i][1]));
+            if(v[i][0]==x ||v[i][1]==y)
+            {
+                if(dist<ans)
+                {
+                    ans=dist;
+                    t=i;
+                }
+            }
+           
+        }
+        return t;
+    }
+};
