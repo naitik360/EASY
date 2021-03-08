@@ -1,0 +1,38 @@
+class Solution {
+public:
+     bool ok=0;
+     int k=0;
+     void find(int v[],int l)
+    {   
+        int t=0;
+        for(int i=0;i<l;i++)
+        {
+            t=v[i]+t;
+        }
+        if(t==k)
+            ok=1;
+    }
+
+    void sum(TreeNode* root,int v[],int l)
+    {
+        if(!root)
+            return ;
+        v[l]=root->val;
+        l++;
+        if(root->left==NULL && root->right==NULL)
+            find(v,l);
+
+
+        sum(root->left,v,l);
+        sum(root->right,v,l);
+    }
+
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        int v[100000];
+        k=targetSum;
+        sum(root,v,0);
+        
+        return ok;
+
+    }
+};
