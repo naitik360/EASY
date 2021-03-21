@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int secondHighest(string s) {
+        
+        set<int> S;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                int h=s[i]-'0';
+                   S.insert(h);
+            }
+                
+        }
+        priority_queue<int> q(S.begin(),S.end());
+        if(q.size()>1)
+        {
+            q.pop();
+            return q.top();
+        }
+        else
+            return -1;
+        
+    }
+};
