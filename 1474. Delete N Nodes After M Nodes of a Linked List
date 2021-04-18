@@ -1,0 +1,25 @@
+class Solution {
+public:
+    ListNode* deleteNodes(ListNode* head, int m, int n) {
+        ListNode* curr=head;
+        int t=0;
+        while(curr!=NULL)
+        {
+            t++;
+            if(t==m)
+            {   
+                t=0;
+                int e=0;
+                ListNode* c=curr;
+                while(c!=NULL && e!=n+1)
+                {
+                    c=c->next;
+                    e++;
+                }
+                curr->next=c;
+            }
+            curr=curr->next;
+        }
+      return head;
+    }
+};
