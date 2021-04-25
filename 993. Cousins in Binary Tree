@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool isCousins(TreeNode* root, int x, int y) {
+        if(!root) return true;
+        queue<pair<TreeNode*,TreeNode*>> q;
+        q.push({root,NULL});
+        q.push({NULL, NULL});
+        int c1=-1, c2=-1, level=0;
+        TreeNode* parent1=NULL, *parent2=NULL;
+        while(!q.empty()){
+            
+            TreeNode* cur=q.front().first;
+            TreeNode* par=q.front().second;
+            q.pop();
+            if(cur==NULL){
+                if(!q.empty()){
+                q.push({NULL,NULL});
+                    level++;
+                }
+               
+            }
+            else{
+            
+                if(cur->val==x){
+                    parent1=par;
+                    c1=level;
+                }
+                if(cur->val==y){
+                    parent2=par;
+                    c2=level;
+                }
+                if(cur->left){
+                    q.push({cur->left,cur});
+                }
+                if(cur->right){
+                    q.push({cur->right,cur});
+                }
+            }
+        }
+        // cout<<"c1= "<<c1<<"  c2= "<<c2<<" p1 "<<parent1->val<<" p2= "<<parent2->val;
+        if(c1!=c2  || parent1==parent2) return false;
+        return true;
+    }
+};
