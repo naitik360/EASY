@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int sumBase(int n, int k) {
+          
+            int t=0;
+            while(n)
+            {
+                t=t+(n%k);
+                n=n/k;
+            }
+            
+            return t;
+        
+    }
+};
