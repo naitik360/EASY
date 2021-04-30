@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool checkIfPangram(string s) {
+        set<char> k;
+        for(auto i : s)
+             k.insert(i);
+        
+        return (k.size()==26);
+    }
+};
