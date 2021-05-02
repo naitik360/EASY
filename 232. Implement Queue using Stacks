@@ -1,0 +1,52 @@
+class MyQueue {
+public:
+    stack<int> si,sf;
+    MyQueue() {}
+    void push(int x) {si.push(x);}
+    
+    int pop() {
+        int k;
+        if(si.size()==0)
+            k=-1;
+        else
+        {
+           int t=si.size();
+           for(int i=0;i<t-1;i++)
+           {
+             sf.push(si.top());
+             si.pop();
+           }
+           k=si.top();
+          si.pop();
+           while(sf.size())
+           {
+              si.push(sf.top());
+              sf.pop();
+           }
+        }
+      return k;
+    }
+    
+    int peek() {
+      if(si.size()==0)
+          return -1;
+        int h=si.size(),y;
+        for(int i=0;i<h;i++)
+        {   
+            y=si.top();
+            sf.push(si.top());
+            si.pop();
+        }
+        while(sf.size())
+        {
+            si.push(sf.top());
+            sf.pop();
+        }
+      return y;
+    }
+    
+    bool empty() {
+        return !si.size();
+    }
+};
+
