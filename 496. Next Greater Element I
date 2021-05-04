@@ -1,0 +1,26 @@
+class Solution { 
+public:
+    vector<int> nextGreaterElement(vector<int>& v1, vector<int>& v2) {
+        int n=v2.size();
+        stack<int> s;
+        s.push(v2[n-1]);
+        map<int,int> m;
+        m[v2[n-1]]=-1;
+        for(int i=n-2;i>=0;i--)
+        {
+          while(s.size() && v2[i]>=s.top())
+             s.pop();
+          if(s.size()==0)
+             m[v2[i]]=-1;
+          else
+             m[v2[i]]=s.top();
+          s.push(v2[i]);
+        }
+        v2.clear();
+        for(int i=0;i<v1.size();i++)
+        {
+          v2.push_back(m[v1[i]]);
+        }
+      return v2;
+    }
+};
