@@ -1,0 +1,25 @@
+class MovingAverage {
+public:
+    queue<int> q;
+    int sz;
+    MovingAverage(int size){
+        sz=size;
+    }
+    
+    double next(int v) {
+           q.push(v);
+        while(q.size()  && q.size()>sz)
+           q.pop();
+        int t=q.size();
+        double s=0.0;
+        for(int i=1;i<=t;i++)
+        { 
+          s=s+q.front();
+          q.push(q.front());
+          q.pop();
+        }
+      
+       return (s)/double(t);
+    }
+};
+
