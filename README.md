@@ -1,3 +1,2 @@
-# EASY
-leetcode_solutions 
-This repository maintains the solution to LeetCode problems.
+#EASY 
+this repo. contains the leetcode solution to easy level problems solved by me till date in c++ language.
