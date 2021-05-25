@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& v) {
+        int om=v[0],cs=v[0],ans=v[0];
+      
+        for(int i=1;i<v.size();i++)
+        {
+          if(cs>=0)
+             cs=cs+v[i];
+          else
+             cs=v[i];
+          
+          ans=max(ans,cs);
+        }
+      return ans;
+    }
+};
