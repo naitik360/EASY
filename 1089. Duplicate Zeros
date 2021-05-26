@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void duplicateZeros(vector<int>& v) {
+        queue<int> q;
+        for(auto i : v)
+             q.push(i);
+        
+        int i=0;
+        while(i<v.size())
+        {
+            if(q.front()==0)
+            {
+                v[i]=0;
+                i++;
+                if(i>=v.size())
+                     break;
+                v[i]=0;
+                q.pop();
+                i++;
+            }
+            else
+            {
+                v[i]=q.front();
+                q.pop();
+                i++;
+            }
+        }
+    }
+};
