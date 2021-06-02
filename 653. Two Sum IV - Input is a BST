@@ -1,0 +1,31 @@
+class Solution {
+public:
+
+    vector<int> v;
+    void find(TreeNode* node)
+    {
+        if(!node)
+            return;
+        find(node -> left);
+        v.push_back(node -> val);
+        find(node -> right);
+    }
+    
+    bool findTarget(TreeNode* root, int k) {
+        if(!root)
+            return false;
+        find(root);
+        int i = 0, j = v.size()-1;
+        while(i < j)
+        {
+            int s = v[i]+v[j];
+            if(s == k)
+                return true;
+            else if(s < k)
+                i++;
+            else
+                j--;
+        }
+        return false;
+    }
+};
