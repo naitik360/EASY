@@ -1,0 +1,22 @@
+
+class Solution {
+public:
+    int find(TreeNode* root)
+    {
+        if(!root)
+             return 0;
+        int lft=find(root->left);
+        int rght=find(root->right);
+        
+        return max(lft,rght)+1;
+    }
+    bool isBalanced(TreeNode* root) {
+        if(!root)
+             return 1;
+        
+        if(abs(find(root->left)-find(root->right))<=1 && isBalanced(root->left) && isBalanced(root->right))
+              return 1;
+        else
+             return 0;
+    }
+};
