@@ -1,0 +1,30 @@
+
+
+class Solution {
+public:
+    void find(TreeNode* root,unordered_map<int,int> &m,int &mx)
+{
+    if(!root)
+         return ;
+    m[root->val]++;
+    mx=max(mx,m[root->val]);
+    find(root->left,m,mx);
+    find(root->right,m,mx);
+}
+    vector<int> findMode(TreeNode* root) {
+        unordered_map<int,int> m;
+        int mx=INT_MIN;
+        find(root,m,mx);
+        
+        vector<int> v;
+        
+        for(auto i : m)
+        {
+            if(i.second==mx)
+                 v.push_back(i.first);
+        }
+        
+        return v;
+        
+    }
+};
