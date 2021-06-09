@@ -1,0 +1,17 @@
+class Solution {
+public:
+      void find(Node* root,vector<int> &v)
+    {
+        if(!root)
+             return ;
+       // v.push_back(root->val);
+        for(auto &i : root->children)
+            find(i,v);
+          v.push_back(root->val); 
+    }
+    vector<int> postorder(Node* root) {
+        vector<int> v;
+        find(root,v);
+        return v;
+    }
+};
