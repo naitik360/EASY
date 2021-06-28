@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool is(char k)
+    {
+            if(k>='a' && k<='z')
+                return 1;
+            if(k>='A' && k<='Z')
+                return 1;
+            return 0;
+    }
+    string reverseOnlyLetters(string s) {
+        int i=0,j=s.size()-1;
+        while(i<j)
+        {
+            if(is(s[i]) && is(s[j]))
+            {
+                swap(s[i],s[j]);
+                i++;
+                j--;
+                continue;
+            }
+            if(is(s[i])==0)
+                i++;
+            if(is(s[j])==0)
+                j--;
+        }
+      return s;
+    }
+};
