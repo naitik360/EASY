@@ -1,0 +1,29 @@
+class Solution {
+public:
+     vector<int> find(int &n,vector<int> &v)
+{
+        if(n+1==2)
+           return v;
+        vector<int> k;
+        k.push_back(1);
+        for(int i=0;i<v.size()-1;i++)
+            k.push_back((v[i]+v[i+1]));
+            
+        k.push_back(1);
+        v=k;
+        n=n-1;
+        return find(n,v);
+}
+    vector<int> getRow(int n) {
+        if(n+1==1)
+         return {1};
+        else if(n+1==2)
+         return {1,1};
+        else
+         {vector<int> v;
+         v.push_back(1);
+         v.push_back(1);
+         find(n,v);
+         return v;}
+    }
+};
