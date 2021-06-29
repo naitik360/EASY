@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int numDifferentIntegers(string s) {
+        string j="";
+        unordered_set<string> k;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                j=j+s[i];
+            }
+            else if(i>=1 && s[i-1]>='0' && s[i-1]<='9')
+            {   
+                int t=0;
+                while(j[t]=='0')
+                {
+                    t++;
+                } 
+                string a=j.substr(t); 
+                k.insert(a);
+                j="";
+            }
+        }
+      if(s[s.size()-1]>='0'  &&  s[s.size()-1]<='9')
+      {
+          int t=0;
+                while(j[t]=='0')
+                {
+                    t++;
+                } 
+                string a=j.substr(t); 
+                k.insert(a);
+      }
+        
+      return k.size();
+    }
+};
