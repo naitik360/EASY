@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void find(TreeNode* root,double k,int &ans,double &d)
+    {
+        if(!root)
+              return ;
+        find(root->left,k,ans,d);
+        if(abs(double(root->val)-k)<d)
+        {
+            ans=root->val;
+            d=abs(double(root->val)-k);
+        }
+        find(root->right,k,ans,d);
+    }
+    int closestValue(TreeNode* root, double k) {
+        double d= DBL_MAX;
+        int ans=0;
+        find(root,k,ans,d);
+        return ans;
+    }
+};
