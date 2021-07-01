@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int getMaximumGenerated(int n) {
+        if(n==0)
+            return 0;
+        if(n==1)
+            return 1;
+        int dp[n+1];
+        dp[0]=0;
+        dp[1]=1;
+        int ans=INT_MIN;
+        for(int i=2;i<=n;i++)
+        {
+            if(i%2==0)
+            {
+                int index=i/2;
+                dp[i]=dp[index];
+            }
+            else
+            {
+                int index=(i/2);
+                dp[i]=dp[index+1]+dp[index];
+            } 
+           ans=max(ans,dp[i]); 
+        }
+        
+        for(int i=0;i<=n;i++)
+             cout<<dp[i]<<" ";
+      return ans;
+    }
+};
