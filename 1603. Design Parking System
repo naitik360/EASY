@@ -1,0 +1,46 @@
+class ParkingSystem {
+public:
+    pair<int,int>  ok1,ok2,ok3;
+    ParkingSystem(int big, int medium, int small) {
+        ok1={small,0};
+        ok2={medium,0};
+        ok3={big,0};
+    }
+    
+    bool addCar(int n) {
+        int ans=1;
+       if(n==1)
+       {
+           if(ok3.first)
+           {
+               ok3.first--;
+               ans=1;
+           }
+           else
+               ans=0;
+       }
+        else if(n==2)
+       {
+           if(ok2.first)
+           {
+               ok2.first--;
+               ans=1;
+           }
+           else
+               ans=0;
+       }
+        else
+            if(n==3)
+       {
+           if(ok1.first)
+           {
+               ok1.first--;
+               ans=1;
+           }
+           else
+               ans=0;
+       }
+      return ans;
+    }
+};
+
