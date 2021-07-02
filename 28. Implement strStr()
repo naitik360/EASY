@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int strStr(string s, string n) {
+        if((s==n))
+            return 0;
+        else if((s.size()==0) && (n.size()!=0))
+             return -1;
+        else if((s.size()!=0) && (n.size()==0))
+             return 0; 
+        for(int i=0;i<s.size();i++)
+        {
+            if(n[0]==s[i])
+            {   
+                int j=i,k=0;
+                while(j<s.size() && k<n.size() && s[j]==n[k])
+                {
+                    j++;
+                    k++;
+                }
+                if(k==n.size())
+                    return i;
+            }
+        }
+      return -1;
+    }
+};
