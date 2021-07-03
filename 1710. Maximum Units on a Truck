@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int maximumUnits(vector<vector<int>>& a, int t) {
+        vector<pair<int,int>> v;
+        int ans=0;
+        for(int i=0;i<a.size();i++)
+          v.push_back({a[i][1],a[i][0]});
+        
+        sort(v.rbegin(),v.rend());
+        
+        for(auto i : v)
+        {
+            int c=i.second;
+            int k=i.first;
+            if(c>=t)
+            {
+                ans=ans+t*i.first;
+                break;
+            }
+            else if(c<t)
+            {   
+                ans=ans+k*c;
+                t=t-c;
+                c=0;    
+            }
+        }
+      return ans;  
+    }
+};
