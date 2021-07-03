@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int countElements(vector<int>& v) {
+        unordered_map<int,int> m;
+        unordered_set<int> s;
+        for(auto i : v)
+        {m[i]++;}
+        int ans=0;
+        
+        for(auto i : v)
+        {
+            int t=i+1;
+            if(m.find(t)!=m.end() && s.find(i)==s.end())
+            {
+                ans+=m[i];
+            }
+            
+            s.insert(i);
+        }
+     return ans;
+    }
+};
