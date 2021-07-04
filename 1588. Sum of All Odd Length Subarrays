@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& v) {
+        int n=v.size(),t=0;
+        int p[n];
+        p[0]=v[0];
+        for(int i=1;i<n;i++)
+        {p[i]=p[i-1]+v[i];t+=v[i];}
+        
+        for(int i=2;i<n;i=i+2)
+        {   
+            int prev=0,k=-1;
+            for(int j=i;j<n;j++)
+            {
+                t=t+(p[j]-prev);
+                k++;
+                prev=p[k];
+            }
+        }
+      return t+v[0];
+    }
+};
