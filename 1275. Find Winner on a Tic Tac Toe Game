@@ -1,0 +1,104 @@
+class Solution {
+public:
+    string tictactoe(vector<vector<int>>& move) {
+        vector<vector<int>> v;
+        for(int i=0;i<3;i++)
+        {   
+            vector<int> k;
+            for(int j=0;j<3;j++)
+            {
+                k.push_back(0);
+            }
+            v.push_back(k);
+        }
+        
+        int p1=0,p2=0;
+        bool ok=1;
+        string res="Draw";
+        for(int i=0;i<move.size();i++)
+        {
+            int r=move[i][0],c=move[i][1];
+            if(ok)
+                p1++;
+            else
+                p2++;
+            int t=0;
+            v[r][c]=(ok) ? 1 : 2;
+            
+            if(p1>=3 || p2>=3)
+            {  
+                int p;
+               if(ok)
+                   p=1;
+                else
+                    p=2;
+               if(check(r,c,v,p))
+               {
+                   if(ok)
+                   {
+                       res="A";
+                   }
+                   else
+                       res="B";
+                   t=1;
+                   break;
+               }
+            }
+            ok=!ok;
+          if(t)
+          {
+              break;
+          }
+        }
+      if(res=="Draw")
+      {
+          if(move.size()!=9)
+              res="Pending";
+      }
+      return res;
+    }
+    
+    bool check(int r,int c,vector<vector<int>> &v,int p)
+    {   
+        int t=0;
+        for(int i=0;i<v.size();i++)
+        {
+            if(v[i][c]==p)
+                t++;
+        }
+        if(t==v.size())
+        return 1;
+        
+        t=0;
+        
+        for(int i=0;i<v.size();i++)
+        {
+            if(v[r][i]==p)
+                t++;
+        }
+        if(t==v.size())
+            return 1;
+        
+        t=0;
+        
+        for(int i=0;i<v.size();i++)
+        {
+            if(v[i][i]==p)
+                t++;
+        }
+        if(t==v.size())
+        return 1;
+        
+        t=0;
+        
+        for(int i=0;i<v.size();i++)
+        {
+            if(v[i][v.size()-i-1]==p)
+                t++;
+        }
+        if(t==v.size())
+            return 1;
+        
+      return 0;      
+    }
+};
