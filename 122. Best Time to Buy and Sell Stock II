@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& v) {
+        int bd=0,sd=0,p=0;
+        
+        for(int i=1;i<v.size();i++)
+        {
+            if(v[i]>=v[i-1])
+                sd=i;
+            else
+            {
+                p+=v[sd]-v[bd];
+                sd=bd=i;
+            }
+        }
+      p+=v[sd]-v[bd];
+      return p;
+    }
+};
