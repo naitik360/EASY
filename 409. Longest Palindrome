@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map<char,int> m;
+        for(auto i : s)
+             m[i]++;
+        
+        int odd=0;
+        for(auto i : m)
+        {   
+            if((i.second)&1)
+              odd++;                    //was missing this point
+        }
+      return (s.size()-odd)+(odd>0);
+    }
+};
