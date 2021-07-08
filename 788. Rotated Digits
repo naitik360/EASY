@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int rotatedDigits(int n) {
+        int t=0;
+        while(n)
+        {
+            string s=to_string(n);
+            bool ok=1;
+            string k = "";
+            for(auto i : s)
+            {   
+                if(i=='3' || i=='4' || i=='7')
+                {
+                    ok=0;
+                    break;
+                }
+                else if(i=='0')
+                     k=k+"0";
+                else  if(i=='1')
+                     k=k+"1";
+                if(i=='2') 
+                     k=k+"5";
+                else if(i=='5')
+                     k=k+"2";
+                else if(i=='6')
+                     k=k+"9";
+                else if(i=='8')
+                     k=k+"8";
+                else if(i=='9')
+                     k=k+"6";
+            }
+            if(ok && (s!=k))
+                 t++;
+            n--;
+        }
+       return t;
+    }
+};
