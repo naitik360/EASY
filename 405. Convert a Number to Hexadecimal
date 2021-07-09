@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string toHex(int num) {
+        if(num==0)
+             return "0";
+         unsigned int t=num;
+        string ans="";
+        while(t)
+        {
+            int r=t%16;
+            if(r>1 && r<=9)
+            {
+                ans=to_string(r)+ans;
+                //break;
+            }
+            else if(r==0)
+                ans="0"+ans;
+            else if(r==1)
+                ans="1"+ans;
+            else if(r==10)
+                ans="a"+ans;
+            else if(r==11)
+                 ans="b"+ans;
+            else if(r==12)
+                 ans="c"+ans;
+            else if(r==13)
+                 ans="d"+ans;
+            else if(r==14)
+                 ans="e"+ans;
+            else if(r==15)
+                 ans="f"+ans;
+           
+          t=t/16;     
+        }  
+       return ans;
+    }
+};
