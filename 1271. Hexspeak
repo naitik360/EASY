@@ -1,0 +1,41 @@
+class Solution {
+public:
+    string toHexspeak(string s) {
+        long long int t=0;
+        for(auto i : s)
+          t=t*10+(i-'0');
+        string ans="";
+        while(t)
+        {
+            int r=t%16;
+            if(r>1 && r<=9)
+            {
+                ans="ERROR";
+                break;
+            }
+            else if(r==0)
+                ans="O"+ans;
+            else if(r==1)
+                ans="I"+ans;
+            else if(r==10)
+                ans="A"+ans;
+            else if(r==11)
+                 ans="B"+ans;
+            else if(r==12)
+                 ans="C"+ans;
+            else if(r==13)
+                 ans="D"+ans;
+            else if(r==14)
+                 ans="E"+ans;
+            else if(r==15)
+                 ans="F"+ans;
+            else
+            {
+                ans="ERROR";
+                break;
+            }
+          t=t/16;     
+        }  
+       return ans;
+    }
+};
