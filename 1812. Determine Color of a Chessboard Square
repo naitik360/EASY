@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool squareIsWhite(string s) {
+       int t=0;
+        
+        if((s[0]-'a')%2==0)
+        {
+            if((s[1]-'0')%2==0)
+                 t=1;
+            else
+                 t=0;
+        }
+        else
+        {
+             if((s[1]-'0')%2==0)
+                 t=0;
+            else
+                 t=1;
+        }
+        return t;
+    }
+};
