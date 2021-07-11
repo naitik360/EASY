@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> sumEvenAfterQueries(vector<int>& v, vector<vector<int>>& q) {
+        
+        vector<int> ans;
+        int s=0;
+        
+        for(auto &i : v)
+        {
+            if(i%2==0)
+                s=s+i;
+        }
+        
+        for(int i=0;i<q.size();i++)
+        {
+            if(v[q[i][1]]%2==0)
+              s=s-v[q[i][1]];
+            
+            v[q[i][1]]=v[q[i][1]]+q[i][0];
+            
+            if(v[q[i][1]]%2==0)
+              s=s+v[q[i][1]];
+                
+                
+            ans.push_back(s);
+        }
+      return ans;
+    }
+};
