@@ -1,0 +1,35 @@
+class Solution {
+public:
+    
+   bool niceSubstr(string&s,int&i,int&j,int&n) {
+       int S[26]={0} , L[26]={0};
+       for(int x = i;x<=j;x++) {
+           if(s[x]>='a' && s[x]<='z') 
+               S[s[x]-'a']++;
+           else 
+               L[s[x]-'A']++;
+       }
+       for(int i=0;i<26;i++) {
+           if((S[i]&&!L[i]) ||(!S[i]&&L[i]))
+               return 0;
+       }       
+       return true;
+    }
+    
+    string longestNiceSubstring(string s) {
+        int maxLen =0;
+        string ans = "";
+        int n = s.length();
+        for(int i=0;i<n;i++) {
+            for(int j=i+1;j<n;j++) {
+                if(niceSubstr(s,i,j,n)) {
+                    if(maxLen < j-i+1){
+                        maxLen = j-i+1;
+                        ans = s.substr(i,j-i+1);
+                    }                        
+                }
+            }
+        }
+        return ans;
+    }
+};
