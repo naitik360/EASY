@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int countBalls(int l, int h) {
+        int m[50]={0};
+        int ans=INT_MIN,s=0,n;
+        for(int i=l;i<=h;i++)
+        {   
+            s=0;
+            n=i;
+            while(n)
+            {
+                s=s+n%10;
+                n=n/10;
+            }
+            m[s]++;
+            if(ans<m[s])
+              ans=m[s];
+        }
+       return ans;
+    }
+};
