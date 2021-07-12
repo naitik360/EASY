@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int r=0,l=0,t=0;
+        for(auto i : s)
+        {
+            if(i=='R')
+                 r++;
+            if(i=='L')
+                 l++;
+            
+            if(l==r)
+            {
+                t++;
+                l=r=0;
+            }
+        }
+      return t;
+    }
+};
