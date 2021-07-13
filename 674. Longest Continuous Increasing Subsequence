@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findLengthOfLCIS(vector<int>& v) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        int ans=1,t=0;
+        for(int i=1;i<v.size();i++)
+        {   
+            if(v[i]>v[i-1])
+            {   
+                ans++;
+                if(ans>t)
+                     t=ans;
+            }
+            else
+            {
+                ans=1;
+            }
+        }
+         if(ans>t)
+                     t=ans;
+      return t;
+    }
+};
