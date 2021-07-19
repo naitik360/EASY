@@ -1,0 +1,25 @@
+class Solution {
+public:
+    set<string> ans;
+    void DFS(string s,string r,set<int> k)
+    {
+        if(k.size()==s.size())
+             return ;
+        for(int j=0;j<s.size();j++)
+        {   
+            if(k.find(j)==k.end())
+            {
+                k.insert(j);
+                ans.insert(r+string(1,s[j]));
+                DFS(s,r+string(1,s[j]),k);
+                k.erase(j);
+            }
+        }
+    }
+    int numTilePossibilities(string s){
+        int t=0;
+        set<int> k;
+        DFS(s,"",k);
+        return ans.size();
+    }
+};
