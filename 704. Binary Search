@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int t=-1;
+    void find(vector<int> v,int val,int low,int high)
+    {      
+        while(low<=high)
+        {
+            int mid=(low)+((high-low)/2);
+            if(v[mid]==val)
+            {
+                t=mid;
+                break;
+            }
+            else if(v[mid]>val)
+            {
+                high=mid-1;
+            }
+            else 
+                low=mid+1;
+        }
+    }
+    int search(vector<int>& v, int val) {
+        find(v,val,0,v.size()-1);
+        return t;
+    }
+};
