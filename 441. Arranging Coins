@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+//         int t=n,i=1,ans=0;      
+//         while(n>0)
+//         {   
+//             n=n-i; 
+//             if(n>=0)
+//                 ans++;
+//             i++;
+//         }
+//       return ans;
+        
+        return (sqrt(0.25+2*long(n))-0.5);
+    }
+};
