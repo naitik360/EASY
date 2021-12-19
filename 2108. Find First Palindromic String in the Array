@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool check(string s)
+    {
+        int i=0,j=s.size()-1;
+        while(i<=j)
+        {
+            if(s[i++]!=s[j--])
+                return 0;
+        }
+                    return 1;
+    }
+    string firstPalindrome(vector<string>& v) {
+        string ans="";
+        for(auto i : v)
+        {
+            if(check(i))
+            {
+                ans=i;
+                break;
+            }
+        }
+        return ans;
+    }
+};
