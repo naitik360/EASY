@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isSameAfterReversals(int v) {
+        int r=0,k=v;
+        while(v)
+        {
+            r=r*10+(v%10);
+            v/=10;
+        }
+        v=r;
+        r=0;
+         while(v)
+        {
+            r=r*10+(v%10);
+            v/=10;
+        }
+        cout<<r;
+        return r==k;
+    }
+};
