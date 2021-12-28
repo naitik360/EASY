@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int solve(TreeNode* root,int &s)
+    {   
+        if(!root)
+             return 0;
+        int l = solve(root->left,s);
+        int r = solve(root->right,s);
+        s+=abs(l-r);
+        return (l+r+root->val);
+    }
+    int findTilt(TreeNode* root) {
+        int s=0;
+        solve(root,s);
+        return s;
+    }
+};
