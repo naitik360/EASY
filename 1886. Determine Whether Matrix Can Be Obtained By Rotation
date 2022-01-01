@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void transpose(vector<vector<int>>& v)
+    {
+        for(int i=0;i<v.size();i++)
+        {
+            for(int j=i;j<v[0].size();j++)
+            {
+                swap(v[i][j],v[j][i]);
+            }
+        }
+    }
+    void rev(vector<vector<int>>& v)
+    {
+        for(int i=0;i<v.size();i++)
+        {
+            reverse(v[i].begin(),v[i].end());
+        }
+    }
+    bool findRotation(vector<vector<int>>& v, vector<vector<int>>& k) {
+        if(v==k)
+             return 1;
+        int t=3;
+        while(t--)
+        {
+            transpose(v);
+            rev(v);
+            if(v==k)
+                return 1;
+        }
+      return 0;
+    }
+};
