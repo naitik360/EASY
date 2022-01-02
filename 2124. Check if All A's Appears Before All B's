@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool checkString(string s) {
+        int ok=0;
+        for(auto i : s)
+        {
+            if(i=='b')
+                 ok=1;
+            
+            if(ok && i=='a')
+                return 0;
+        }
+      return 1;
+    }
+};
