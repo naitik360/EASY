@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        vector<int> v(s.size()+1,0);
+        int lo=0,hi=s.size();
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='I')
+                 v[i]=lo++;
+            else if(s[i]=='D')
+                 v[i]=hi--;
+        }
+         v[v.size()-1]=lo;
+      return v;
+    }
+};
