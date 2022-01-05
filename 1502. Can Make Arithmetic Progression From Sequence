@@ -1,0 +1,12 @@
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& k) {
+        sort(k.begin(),k.end());
+        for(int j=2;j<k.size();j++)
+        {
+            if(k[0]-k[1]!=k[j-1]-k[j])
+                return 0;
+        }
+      return 1;
+    }
+};
