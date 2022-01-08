@@ -1,0 +1,30 @@
+class Solution {
+public:
+    string capitalizeTitle(string s) {
+        stringstream ss(s);
+        string w="",res="";
+        while(ss>>w)
+        {
+            if(w.size()<=2)
+            {
+                for(auto &i : w)
+                {
+                    i=tolower(i);
+                }
+            }
+            else
+            {
+                string k=w;
+                k[0]=toupper(k[0]);
+                for(int i=1;i<k.size();i++)
+                {
+                    k[i]=tolower(k[i]);
+                }
+                w=k;
+            }
+          res=res+w+" ";
+        }
+        res.pop_back();
+      return res;
+    }
+};
