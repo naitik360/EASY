@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int ans=INT_MIN;
+    int find(TreeNode* root)
+    {
+        if(!root)
+            return 0;
+        int l=find(root->left);
+        int h=find(root->right);
+        
+        ans=max(ans,l+h);
+        return max(l,h)+1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(!root)
+            return 0;
+        find(root);
+        return ans;
+    }
+};
