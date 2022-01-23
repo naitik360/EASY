@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int countElements(vector<int>& v) {
+        int ans=0,ok=0,fine=0;
+        for(int i=0;i<v.size();i++)
+        {   
+            ok=0,fine=0;
+            for(int j=0;j<v.size();j++)
+            {
+                if(v[i]>v[j] && i!=j)
+                {
+                    ok=1;
+                }
+                
+                if(v[i]<v[j] && i!=j)
+                {
+                    fine=1;
+                }
+            }
+            if(ok && fine)
+                ans++;
+        }
+      return ans;
+    }
+};
