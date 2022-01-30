@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int findFinalValue(vector<int>& v, int k) {
+        set<int> s(v.begin(),v.end());
+        
+        while(s.find(k)!=s.end())
+        {
+            k=k*2;
+        }
+      return k;
+    }
+};
