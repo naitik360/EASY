@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string removeDigit(string s, char k) {
+        string res="",mx="";
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]==k)
+            {   
+                res="";
+                for(int j=0;j<s.size();j++)
+                {
+                   if(i==j)
+                        continue;
+                    else
+                         res+=s[j];
+                }
+                if(res>mx)
+                {
+                    mx=res;
+                }
+            }
+        }
+      return mx;
+    }
+};
