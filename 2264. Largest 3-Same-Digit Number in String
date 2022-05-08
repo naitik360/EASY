@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string largestGoodInteger(string s) {
+        int t=1;
+        string res="";
+        for(int i=1;i<s.size();i++)
+        {
+            if(s[i-1]==s[i])
+            {
+                t++;
+            }
+            else 
+            {
+                if(t>=3)
+                {
+                    string k = string(3,s[i-1]);
+                    if(k>res)
+                         res=k;
+                }
+                t=1;
+            }
+        }
+        if(t>=3)
+        {
+            string k = string(3,s[s.size()-1]);
+                    if(k>res)
+                         res=k;
+        }
+        
+        return res;
+        
+    }
+};
