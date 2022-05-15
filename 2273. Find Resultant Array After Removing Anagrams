@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<string> removeAnagrams(vector<string>& v) {
+        stack<string> k;
+        
+        for(auto i : v)
+        {
+            if(k.size()==0)
+            {
+                k.push(i);
+            }
+            else
+            {
+                string g = k.top();
+                sort(g.begin(),g.end());
+                string t = i;
+                sort(t.begin(),t.end());
+                if(t!=g)
+                     k.push(i);
+            }
+        }
+        
+        v.clear();
+        
+        while(k.size())
+        {
+            v.push_back(k.top());
+            k.pop();
+        }
+        
+        reverse(v.begin(),v.end());
+        
+        return v;
+    }
+};
